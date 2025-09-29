@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Donors - LiFA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #b41919;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    button, a {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      margin: 0 5px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    button {
+      background-color: #b41919;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: #a00;
+    }
+
+    a {
+      background-color: #444;
+      color: #fff;
+    }
+
+    a:hover {
+      background-color: #222;
+    }
+
+    table {
+      width: 95%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background-color: #fff0f0;
+      color: #b41919;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fafafa;
+    }
+
+    tr:hover td {
+      background-color: #f1f1f1;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        background-color: #b41919;
+        color: #fff;
+        padding: 10px;
+      }
+
+      td {
+        padding: 10px;
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #eee;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Registered Donors</h2>
+
+  <div class="controls">
+    <button id="refresh">Refresh</button>
+    <a href="register.html">Register New Donor</a>
+  </div>
+
+  <table id="donorsTable">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Blood Group</th>
+        <th>City</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Last Donated</th>
+        <th>Health Issues</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="js/donors.js">
+
+
+async function loadDonors(){
+  const token = localStorage.getItem('token');
+  try{
+    const res = await fetch('/api/donors', { headers:{ 'Authorization': token } });
+    const donors = await res.json();
+    const tbody=document.querySelector('#donorsTable tbody'); tbody.innerHTML='';
+    if(!donors.length) tbody.innerHTML='<tr><td colspan="7">No donors found</td></tr>';
+    donors.forEach(d=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML=`<td>${d.fullName}</td><td>${d.bloodGroup}</td><td>${d.city}</td><td>${d.mobile}</td><td>${d.email}</td><td>${d.lastDonated}</td><td>${d.healthIssues?.join(', ')||'None'}</td>`;
+      tbody.appendChild(tr);
+    });
+  }catch(err){ console.error(err); }
+}
+document.getElementById('refresh').addEventListener('click', loadDonors);
+loadDonors();
+  </script>
+</body>
+</html>

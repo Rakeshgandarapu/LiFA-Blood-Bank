@@ -1,0 +1,54 @@
+/* 📝 Form Styling for Login + Register */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #c00;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.submit-btn:hover {
+  background-color: #a00;
+}

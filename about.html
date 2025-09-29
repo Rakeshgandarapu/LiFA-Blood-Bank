@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | LiFA Blood Bank</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff5f5, #ffecec, #fff0f0);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(to right, #b41919, #e63946);
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .back-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      color: #b41919;
+      border: 2px solid #b41919;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #b41919;
+      color: white;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .content h1 {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #b41919;
+    }
+
+    .content p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .highlight {
+      color: #b41919;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #fffaf9;
+      border-top: 2px solid #b41919;
+      font-size: 14px;
+      color: #444;
+    }
+
+    @media (max-width: 600px) {
+      .content h1 { font-size: 30px; }
+      .content p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="home.html" class="back-btn">← Back</a>
+    LiFA Blood Bank
+  </div>
+
+  <div class="content">
+    <h1>About LiFA Blood Bank</h1>
+    <p>
+      <span class="highlight">LiFA Blood Bank</span> is a community-driven platform designed to save lives by connecting blood donors with patients in need. 
+      We believe that timely access to blood can make the difference between life and death, and our mission is to create an easy-to-use, reliable, and transparent system for blood donation and availability.
+    </p>
+    <p>
+      Our platform provides real-time information about <span class="highlight">blood availability</span>, donor details, and locations of blood banks and donation camps. 
+      Whether you want to register as a donor or find a blood donor during an emergency, LiFA is here to bridge the gap.
+    </p>
+    <p>
+      At LiFA, we emphasize <span class="highlight">trust, responsibility, and humanity</span>. 
+      Every drop of blood counts, and together we can ensure no one suffers due to lack of blood during critical times.
+    </p>
+    <p>
+      Join us today in our mission to create a healthier and safer society — because saving lives starts with you.
+    </p>
+  </div>
+
+  <footer>
+    © 2025 LiFA Blood Bank | Together We Save Lives ❤️
+  </footer>
+
+</body>
+</html>

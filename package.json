@@ -1,0 +1,31 @@
+{
+  "name": "project-root",
+  "version": "1.0.0",
+  "description": "LIFA Blood Bank is a modern healthcare initiative dedicated to saving lives by ensuring the availability of safe and reliable blood for patients in need.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "rakesh",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Rakeshgandarapu/LiFA-Blood-Bank.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rakeshgandarapu/LiFA-Blood-Bank/issues"
+  },
+  "homepage": "https://github.com/Rakeshgandarapu/LiFA-Blood-Bank#readme"
+}

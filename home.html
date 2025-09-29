@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LiFA Blood Bank</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff5f5, #ffecec, #fff0f0);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 20px 10px;
+      background: linear-gradient(to right, #b41919, #e63946);
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      padding: 15px;
+      background-color: #fffaf9;
+      border-bottom: 3px solid #b41919;
+    }
+
+    .navbar a {
+      display: block;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: bold;
+      color: #b41919;
+      border: 2px solid #b41919;
+      border-radius: 10px;
+      background: white;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(180,25,25,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background: #b41919;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(180,25,25,0.3);
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content h1 {
+      font-size: 46px;
+      margin-bottom: 20px;
+      color: #b41919;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .content p {
+      font-size: 18px;
+      margin-bottom: 35px;
+      color: #555;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    .btn-main {
+      padding: 16px 36px;
+      background: linear-gradient(to right, #b41919, #e63946);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-main:hover {
+      background: linear-gradient(to right, #a00, #cc1c1c);
+      transform: scale(1.05);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+      .content h1 { font-size: 36px; }
+      .content p { font-size: 17px; }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .header { font-size: 24px; padding: 15px 5px; }
+      .navbar { grid-template-columns: 1fr; gap: 10px; }
+      .navbar a { font-size: 14px; padding: 10px; }
+      .content { padding: 20px 10px; }
+      .content h1 { font-size: 26px; }
+      .content p { font-size: 15px; }
+      .btn-main { font-size: 15px; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">LiFA Blood Bank</div>
+
+    <div class="navbar">
+      <a href="home.html">🏠 Home</a>
+      <a href="register.html">📝 Registration</a>
+      <a href="donors.html">👥 Donors</a>
+      <a href="location.html">📍 Location</a>
+      <a href="info.html">💉 Information</a>
+      <a href="login.html">🔑 Login</a>
+      <a href="about.html">ℹ️ About</a>
+    </div>
+
+    <div class="content">
+      <h1>Welcome to LiFA Blood Bank</h1>
+      <p>
+        Join our life-saving mission. Register as a donor, explore available donors, 
+        and find blood availability in your city. Together, we make a difference!
+      </p>
+      <a href="register.html" class="btn-main">Become a Donor</a>
+    </div>
+  </div>
+
+</body>
+</html>

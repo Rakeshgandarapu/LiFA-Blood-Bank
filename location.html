@@ -1,0 +1,81 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiFA Blood Bank - Donors by City</title>
+  <style>
+    body { font-family: "Segoe UI", sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    header { background: #b30000; color: #fff; padding: 20px; text-align: center; }
+    main { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+    .filter-box { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 25px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+    select { padding: 10px; border-radius: 6px; border: 1px solid #ccc; min-width: 200px; font-size: 15px; }
+    #donorsList { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .donor-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .donor-card h3 { margin: 0 0 10px; color: #b30000; font-size: 20px; }
+    .donor-card p { margin: 5px 0; font-size: 14px; }
+    footer { text-align: center; padding: 15px; margin-top: 40px; font-size: 14px; background: #eee; color: #666; }
+  </style>
+</head>
+<body>
+  <header><h1>LiFA Blood Bank - Find Donors by City</h1></header>
+  <main>
+    <div class="filter-box">
+      <label for="city">Select City:</label>
+      <select id="city">
+        <option value="">-- Select a City --</option>
+        <option>Hyderabad</option>
+        <option>Karimnagar</option>
+        <option>Warangal</option>
+        <option>Khammam</option>
+        <!-- Add other cities here -->
+      </select>
+    </div>
+    <div id="donorsList">
+      <p style="grid-column:1/-1; text-align:center; color:#777;">Please select a city to view donors.</p>
+    </div>
+  </main>
+  <footer>&copy; 2025 LiFA Blood Bank | Saving Lives, One Drop at a Time ❤️</footer>
+
+  <script>
+    const citySelect = document.getElementById("city");
+    const donorsList = document.getElementById("donorsList");
+
+    citySelect.addEventListener("change", async () => {
+      const city = citySelect.value;
+      donorsList.innerHTML = "";
+      if (!city) {
+        donorsList.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#777;">Please select a city to view donors.</p>';
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/donors/by-city?city=${city}`);
+        const data = await res.json();
+
+        if (!data.donors.length) {
+          donorsList.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:red;">❌ No donors found in ${city}.</p>`;
+          return;
+        }
+
+        data.donors.forEach(d => {
+          const div = document.createElement("div");
+          div.className = "donor-card";
+          div.innerHTML = `
+            <h3>${d.fullName}</h3>
+            <p><strong>Blood Group:</strong> ${d.bloodGroup}</p>
+            <p><strong>City:</strong> ${d.city}</p>
+            <p><strong>Mobile:</strong> ${d.mobile}</p>
+            <p><strong>Email:</strong> ${d.email || '-'}</p>
+            <p><strong>Last Donated:</strong> ${d.lastDonated}</p>
+          `;
+          donorsList.appendChild(div);
+        });
+      } catch (err) {
+        donorsList.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:red;">⚠️ Error fetching donors. Please try again.</p>`;
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

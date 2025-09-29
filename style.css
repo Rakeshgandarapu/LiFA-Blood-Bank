@@ -1,0 +1,105 @@
+/* 🌍 Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+/* Container */
+.container {
+  border: 5px solid #00aaff;
+  margin: 30px auto;
+  max-width: 1200px;
+  min-height: 700px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.logo {
+  display: inline-block;
+  padding: 10px 40px;
+  border: 2px solid #a0522d;
+  color: #b41919;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #fffaf0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid #00aaff;
+  border-bottom: 2px solid #00aaff;
+  background-color: #f8f8f8;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  flex-grow: 1;
+  text-align: center;
+  padding: 15px 0;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #00aaff;
+  color: white;
+}
+
+/* Content */
+.content {
+  padding: 40px;
+  text-align: center;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background: #00aaff;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+tbody tr:hover {
+  background: #eef7ff;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar a {
+    flex-grow: unset;
+    border-top: 1px solid #ddd;
+  }
+}
